@@ -1,0 +1,25 @@
+.container {
+  position: inline;
+  align-items: initial;
+  float: left;
+  vertical-align: bottom;
+}
+.icon {
+  float: left;
+  align-items: flex-end;
+  position: center;
+  color: #8c7156;
+  font-size: 16px;
+}
+.text {
+  float: left;
+  align-items: flex-end;
+  position: center;
+  margin-left: 8px;
+  font-size: 14px;
+  size: 18px;
+  color: white;
+}
+.container:hover .icon {
+  color: white;
+}
