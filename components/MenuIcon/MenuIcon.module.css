@@ -1,0 +1,33 @@
+.container1 {
+  width: 25px;
+  height: 2px;
+  background-color: white;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.container2 {
+  width: 25px;
+  height: 2px;
+  background-color: white;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.container3 {
+  width: 25px;
+  height: 2px;
+  background-color: white;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+:hover.container.container2 {
+  color: brown;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.container {
+  width: 30px;
+  position: initial;
+  display: inline;
+}
