@@ -5,7 +5,7 @@ import MenuIcon from "../MenuIcon/MenuIcon";
 import { AiOutlineClose } from "react-icons/ai";
 
 export default function NavBar() {
-  const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(true);
+  const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
   function renderIcon(): any {
     if (isMobileMenuOpened) {
       return (
