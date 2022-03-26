@@ -1,0 +1,48 @@
+.bannerContainer {
+  height: 817px;
+  width: 100%;
+  background-color: rgba(20, 20, 20, 0.89);
+  background-position: 50% 0px;
+  background-size: cover;
+}
+
+.headlineSmall {
+  display: block;
+  font-size: 30px;
+  font-family: "Bellefair";
+  src: local("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
+  color: #fff2f2;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 30px;
+  padding-top: 30px;
+
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.headlineBig {
+  font-size: 84px;
+  font-family: "Bellefair";
+  src: local("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
+  color: #ffffff;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+@media screen and (max-width: 720px) {
+  .headlineBig {
+    font-size: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .headlineSmall {
+    font-size: 23px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .bannerContainer {
+    height: 569px;
+  }
+}
