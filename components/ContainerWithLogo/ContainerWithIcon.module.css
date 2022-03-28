@@ -1,0 +1,37 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: row;
+  background-color: white;
+}
+
+.iconContainer {
+  width: 120px;
+  height: 120px;
+  background-color: #8c7156;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4eeee8;
+  font-size: 60px;
+}
+
+.icon {
+  color: #4eeee8;
+  width: 60px;
+  height: 60px;
+}
+
+.headLine {
+  font-size: 30px;
+  font-family: "Bellefair";
+  src: local("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
+  color: black;
+  margin: 16px;
+  margin-bottom: 30px;
+  padding-top: 30px;
+}
+.para {
+  color: black;
+  margin: 16px;
+}
