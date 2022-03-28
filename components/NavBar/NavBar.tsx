@@ -3,7 +3,7 @@ import styles from "./NavBar.module.css";
 import logo from "/public/logo.png";
 import MenuIcon from "../MenuIcon/MenuIcon";
 import { AiOutlineClose } from "react-icons/ai";
-
+import Link from "next/link";
 export default function NavBar() {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
   function renderIcon(): any {
@@ -27,8 +27,12 @@ export default function NavBar() {
       <div className={styles.icon}>{renderIcon()}</div>
       <img src={logo.src} alt="" className={styles.logo} />
       <ul className={isMobileMenuOpened ? styles.ul_visible : styles.ul_hide}>
-        <li className={styles.nav_li}>Home</li>
-        <li className={styles.nav_li}>Background</li>
+        <li className={styles.nav_li}>
+          <Link href={"/"}>Home</Link>
+        </li>
+        <li className={styles.nav_li}>
+          <Link href={"/Background"}>Background</Link>
+        </li>
         <li className={styles.nav_li}>Our Approach</li>
         <li className={styles.nav_li}>Capabilities</li>
         <li className={styles.nav_li}>Portfolio</li>
