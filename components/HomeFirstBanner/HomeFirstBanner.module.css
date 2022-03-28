@@ -1,11 +1,14 @@
 .bannerContainer {
-  height: 817px;
+  height: 720px;
   width: 100%;
   background-color: rgba(20, 20, 20, 0.89);
   background-position: 50% 0px;
   background-size: cover;
   margin-bottom: 0px;
   padding-bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .headlineSmall {
@@ -29,6 +32,10 @@
   padding-left: 150px;
   padding-right: 150px;
 }
+.textContainer {
+  flex: column;
+  flex-direction: column;
+}
 
 @media screen and (max-width: 720px) {
   .headlineBig {
@@ -42,6 +49,6 @@
     padding-right: 16px;
   }
   .bannerContainer {
-    height: 569px;
+    height: 400px;
   }
 }

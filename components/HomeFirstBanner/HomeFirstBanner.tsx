@@ -9,8 +9,10 @@ export default function HomeFirstBanner() {
         backgroundImage: `url("https://getuct.com/wp-content/uploads/2021/05/Untitled-design-9.png")`,
       }}
     >
-      <div className={styles.headlineSmall}>MARKETPLACE SPECIALISTS</div>
-      <div className={styles.headlineBig}>MOMENTUM IS INCREASING</div>
+      <div className={styles.textContainer}>
+        <div className={styles.headlineSmall}>MARKETPLACE SPECIALISTS</div>
+        <div className={styles.headlineBig}>MOMENTUM IS INCREASING</div>
+      </div>
     </div>
   );
 }
