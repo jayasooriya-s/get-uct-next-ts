@@ -38,9 +38,14 @@
 }
 
 @media screen and (max-width: 1000px) {
+  .navBar {
+    height: 53px;
+    margin-bottom: 0px;
+  }
   .logo {
     align-items: center;
     position: absolute;
+    height: 48px;
   }
   .ul_visible {
     margin-top: 0;
