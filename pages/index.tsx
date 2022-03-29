@@ -7,7 +7,10 @@ import HomeFirstBanner from "../components/HomeFirstBanner/HomeFirstBanner";
 import NavBar from "../components/NavBar/NavBar";
 import styles from "../styles/Home.module.css";
 import { BsGraphUp } from "react-icons/bs";
-import { RiHandCoinLine } from "react-icons/ri";
+import { RiHandCoinLine, RiSuitcaseLine } from "react-icons/ri";
+import { GiMoneyStack } from "react-icons/gi";
+import { BiNotepad } from "react-icons/bi";
+import ImageWithBottomIconTitle from "../components/ImageWithBottomIconTitle/ImageWithBottomIconTitle";
 const Home: NextPage = () => {
   return (
     <div>
@@ -82,9 +85,42 @@ const Home: NextPage = () => {
           }}
         />
       </div>
+      {marketEcosystem()}
+
       <Footer></Footer>
     </div>
   );
+
+  function marketEcosystem() {
+    return (
+      <div className={styles.ecosystemsColumn}>
+        <div className={styles.ecosystemsTitle}>Marketplace ecosystem</div>
+        <div className={styles.ecosystemsRow}>
+          <ImageWithBottomIconTitle
+            title={"Strategy & process consulting"}
+            icon={<RiSuitcaseLine />}
+            imgUrl={
+              "https://getuct.com/wp-content/uploads/2019/10/inner_card_11.jpg"
+            }
+          />
+          <ImageWithBottomIconTitle
+            title={"Technology consulting & development"}
+            icon={<GiMoneyStack />}
+            imgUrl={
+              "https://getuct.com/wp-content/uploads/2019/10/inner_card_10.jpg"
+            }
+          />
+          <ImageWithBottomIconTitle
+            title={"Call center & market support enablement"}
+            icon={<BiNotepad />}
+            imgUrl={
+              "https://getuct.com/wp-content/uploads/2019/10/inner_card_12.jpg"
+            }
+          />
+        </div>
+      </div>
+    );
+  }
 };
 
 export default Home;
