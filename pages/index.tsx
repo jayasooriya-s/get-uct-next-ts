@@ -11,6 +11,8 @@ import { RiHandCoinLine, RiSuitcaseLine } from "react-icons/ri";
 import { GiMoneyStack } from "react-icons/gi";
 import { BiNotepad } from "react-icons/bi";
 import ImageWithBottomIconTitle from "../components/ImageWithBottomIconTitle/ImageWithBottomIconTitle";
+import EnquiryForm from "../components/EnquiryForm/EnquiryForm";
+
 const Home: NextPage = () => {
   return (
     <div>
@@ -86,6 +88,19 @@ const Home: NextPage = () => {
         />
       </div>
       {marketEcosystem()}
+
+      <div className={styles.descriptionAndImage}>
+        <div
+          className={styles.rowImage}
+          style={{
+            backgroundImage: `url("https://getuct.com/wp-content/uploads/2021/06/REQUEST-A-FREE-CALL-BACK.jpg")`,
+          }}
+        ></div>
+
+        <div className={styles.enquiryForm}>
+          <EnquiryForm />
+        </div>
+      </div>
 
       <Footer></Footer>
     </div>

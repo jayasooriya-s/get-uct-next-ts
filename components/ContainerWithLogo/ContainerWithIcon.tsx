@@ -14,7 +14,7 @@ export default function ContainerWithIcon(props: props) {
       <div className={styles.iconContainer}>
         {props.icon ?? <BsGraphUp className={styles.icon} />}
       </div>
-      <div>
+      <div className={styles.textContainer}>
         <div className={styles.headLine}>{props.title}</div>
         <div className={styles.para}>{props.description}</div>
       </div>

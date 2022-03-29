@@ -15,7 +15,9 @@
   color: #4eeee8;
   font-size: 60px;
 }
-
+.textContainer {
+  padding: 16px;
+}
 .icon {
   color: #4eeee8;
   width: 60px;
