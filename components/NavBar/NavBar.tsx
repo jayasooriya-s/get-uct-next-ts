@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 import styles from "./NavBar.module.css";
 import logo from "/public/logo.png";
@@ -22,6 +23,7 @@ export default function NavBar() {
       );
     }
   }
+
   return (
     <div className={styles.navBar}>
       <div className={styles.icon}>{renderIcon()}</div>
@@ -39,6 +41,9 @@ export default function NavBar() {
         <li className={styles.nav_li}>Market Ecosystem</li>
         <li className={styles.nav_li}>Value Dimension</li>
         <li className={styles.nav_li}>Contact</li>
+        {/* <li className={styles.nav_li}>
+          <TextWithBar></TextWithBar>
+        </li> */}
       </ul>
     </div>
   );
