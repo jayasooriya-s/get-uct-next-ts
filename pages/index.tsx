@@ -13,87 +13,71 @@ import { BiNotepad } from "react-icons/bi";
 import ImageWithBottomIconTitle from "../components/ImageWithBottomIconTitle/ImageWithBottomIconTitle";
 import EnquiryForm from "../components/EnquiryForm/EnquiryForm";
 import TopBanner from "../components/HomeFirstBanner/TopBanner";
+import ImageIconRow from "../components/ImageIconRow/ImageIconRow";
 
 const Home: NextPage = () => {
   return (
     <div>
       <NavBar></NavBar>
-
       <TopBanner
         backgroundImage="https://getuct.com/wp-content/uploads/2021/05/Untitled-design-9.png"
         title="MARKETPLACE SPECIALISTS"
         titleBig="MOMENTUM IS INCREASING"
       />
-
-      <div className={styles.descriptionAndImage}>
-        <div
-          className={styles.rowImage}
-          style={{
-            backgroundImage: `url("https://getuct.com/wp-content/uploads/2021/06/5-1.png")`,
-          }}
-        ></div>
-        <ContainerWithIcon
-          icon={<BsGraphUp />}
-          title="OUR MISSION"
-          description={
-            <>
-              <p>
-                Our marketplace ecosystem enables natural pull on both the
-                consumer and supplier side of the market. Both consumers and
-                suppliers should sense an increasing importance of your online
-                marketplace in the world.
-              </p>
-              <p>
-                It should be positioned and designed to acquire the incremental
-                consumer as well as the incremental supplier at ease with the
-                flow.
-              </p>
-              <p>
-                We ensure that our clients are enabled with top of the line
-                technology infrastructure along with the market ecosystem
-                operational and call center infrastructures in a dedicated model
-                leveraging our collective economies of scale.
-              </p>
-            </>
-          }
-        ></ContainerWithIcon>
-      </div>
-
-      <div className={styles.descriptionAndImage}>
-        <ContainerWithIcon
-          icon={<RiHandCoinLine />}
-          title="CONSULTING, DEVELOPMENT AND SUPPORT EXPERTISE"
-          description={
-            <>
-              <p>
-                Our marketplace ecosystem enables natural pull on both the
-                consumer and supplier side of the market. Both consumers and
-                suppliers should sense an increasing importance of your online
-                marketplace in the world.
-              </p>
-              <p>
-                It should be positioned and designed to acquire the incremental
-                consumer as well as the incremental supplier at ease with the
-                flow.
-              </p>
-              <p>
-                We ensure that our clients are enabled with top of the line
-                technology infrastructure along with the market ecosystem
-                operational and call center infrastructures in a dedicated model
-                leveraging our collective economies of scale.
-              </p>
-            </>
-          }
-        />
-        <div
-          className={styles.rowImage}
-          style={{
-            backgroundImage: `url("https://getuct.com/wp-content/uploads/2021/06/4-1.png")`,
-          }}
-        />
-      </div>
+      <ImageIconRow
+        title={"OUR MISSION"}
+        icon={<BsGraphUp />}
+        imgUrl={"https://getuct.com/wp-content/uploads/2021/06/5-1.png"}
+        description={
+          <>
+            <p>
+              Our marketplace ecosystem enables natural pull on both the
+              consumer and supplier side of the market. Both consumers and
+              suppliers should sense an increasing importance of your online
+              marketplace in the world.
+            </p>
+            <p>
+              It should be positioned and designed to acquire the incremental
+              consumer as well as the incremental supplier at ease with the
+              flow.
+            </p>
+            <p>
+              We ensure that our clients are enabled with top of the line
+              technology infrastructure along with the market ecosystem
+              operational and call center infrastructures in a dedicated model
+              leveraging our collective economies of scale.
+            </p>
+          </>
+        }
+      />
+      <ImageIconRow
+        title={"CONSULTING, DEVELOPMENT AND SUPPORT EXPERTISE"}
+        icon={<RiHandCoinLine />}
+        imgUrl="https://getuct.com/wp-content/uploads/2021/06/4-1.png"
+        description={
+          <>
+            <p>
+              Our marketplace ecosystem enables natural pull on both the
+              consumer and supplier side of the market. Both consumers and
+              suppliers should sense an increasing importance of your online
+              marketplace in the world.
+            </p>
+            <p>
+              It should be positioned and designed to acquire the incremental
+              consumer as well as the incremental supplier at ease with the
+              flow.
+            </p>
+            <p>
+              We ensure that our clients are enabled with top of the line
+              technology infrastructure along with the market ecosystem
+              operational and call center infrastructures in a dedicated model
+              leveraging our collective economies of scale.
+            </p>
+          </>
+        }
+        isImageFirst={false}
+      />
       {marketEcosystem()}
-
       <div className={styles.descriptionAndImage}>
         <div
           className={styles.rowImage}
@@ -101,7 +85,6 @@ const Home: NextPage = () => {
             backgroundImage: `url("https://getuct.com/wp-content/uploads/2021/06/REQUEST-A-FREE-CALL-BACK.jpg")`,
           }}
         ></div>
-
         <div className={styles.enquiryForm}>
           <EnquiryForm />
         </div>
