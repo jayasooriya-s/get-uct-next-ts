@@ -1,0 +1,27 @@
+.rowImage {
+  width: 100%;
+  height: 100%;
+  background-position: 50% 0px;
+  background-size: cover;
+  background-color: white;
+}
+
+.descriptionAndImage {
+  flex-direction: row;
+  display: inline-flex;
+  height: 600px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 720px) {
+  .descriptionAndImage {
+    flex: column;
+    flex-direction: column;
+    height: 800px;
+  }
+  .ecosystemsColumn {
+    height: 1300px;
+  }
+}
