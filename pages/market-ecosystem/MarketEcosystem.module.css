@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(marketEcosystemWeb);
+  background-image: url("https://getuct.com/images/UNIVERSAL-CODE-TECHNOLOGIES-WH.jpg");
 }
 
 @media screen and (max-width: 720px) {
