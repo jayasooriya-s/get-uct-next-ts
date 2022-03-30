@@ -18,7 +18,6 @@ import ImageIconRow from "../components/ImageIconRow/ImageIconRow";
 const Home: NextPage = () => {
   return (
     <div>
-      <NavBar></NavBar>
       <TopBanner
         backgroundImage="https://getuct.com/wp-content/uploads/2021/05/Untitled-design-9.png"
         title="MARKETPLACE SPECIALISTS"
@@ -89,8 +88,6 @@ const Home: NextPage = () => {
           <EnquiryForm />
         </div>
       </div>
-
-      <Footer></Footer>
     </div>
   );
 

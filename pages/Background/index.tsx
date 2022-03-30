@@ -9,7 +9,6 @@ import styles from "./Background.module.css";
 export default function Background() {
   return (
     <div>
-      <NavBar></NavBar>
       <HomeFirstBanner backgroundImage="https://getuct.com/wp-content/uploads/2021/06/pexels-photo-830891-scaled.jpeg" />
       <ImageIconRow
         imgUrl={
@@ -47,7 +46,6 @@ export default function Background() {
           </>
         }
       />
-      <Footer></Footer>
     </div>
   );
 }
