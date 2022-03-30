@@ -1,19 +1,15 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import ContainerWithIcon from "../components/ContainerWithLogo/ContainerWithIcon";
-import Footer from "../components/Footer/Footer";
-import HomeFirstBanner from "../components/HomeFirstBanner/TopBanner";
-import NavBar from "../components/NavBar/NavBar";
 import styles from "../styles/Home.module.css";
 import { BsGraphUp } from "react-icons/bs";
 import { RiHandCoinLine, RiSuitcaseLine } from "react-icons/ri";
 import { GiMoneyStack } from "react-icons/gi";
 import { BiNotepad } from "react-icons/bi";
-import ImageWithBottomIconTitle from "../components/ImageWithBottomIconTitle/ImageWithBottomIconTitle";
-import EnquiryForm from "../components/EnquiryForm/EnquiryForm";
-import TopBanner from "../components/HomeFirstBanner/TopBanner";
-import ImageIconRow from "../components/ImageIconRow/ImageIconRow";
+import {
+  EnquiryForm,
+  ImageIconRow,
+  ImageWithBottomIconTitle,
+  TopBanner,
+} from "../components";
 
 const Home: NextPage = () => {
   return (

@@ -1,15 +1,11 @@
 import React from "react";
 import { RiSoundcloudLine } from "react-icons/ri";
-import Footer from "../../components/Footer/Footer";
-import HomeFirstBanner from "../../components/HomeFirstBanner/TopBanner";
-import ImageIconRow from "../../components/ImageIconRow/ImageIconRow";
-import NavBar from "../../components/NavBar/NavBar";
-import styles from "./Background.module.css";
+import { ImageIconRow, TopBanner } from "../../components";
 
 export default function Background() {
   return (
     <div>
-      <HomeFirstBanner backgroundImage="https://getuct.com/wp-content/uploads/2021/06/pexels-photo-830891-scaled.jpeg" />
+      <TopBanner backgroundImage="https://getuct.com/wp-content/uploads/2021/06/pexels-photo-830891-scaled.jpeg" />
       <ImageIconRow
         imgUrl={
           "https://getuct.com/wp-content/uploads/2021/06/marketplace2.png"
