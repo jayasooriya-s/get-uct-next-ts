@@ -44,7 +44,10 @@ export default function NavBar() {
 
         <li className={styles.nav_li}>Portfolio</li>
         <li className={styles.nav_li}>Market Ecosystem</li>
-        <li className={styles.nav_li}>Value Dimension</li>
+        <li className={styles.nav_li}>
+          <Link href={"/value-dimension"}>Value Dimension</Link>
+        </li>
+
         <li className={styles.nav_li}>Contact</li>
         {/* <li className={styles.nav_li}>
           <TextWithBar></TextWithBar>
