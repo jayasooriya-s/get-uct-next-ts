@@ -1,0 +1,9 @@
+.imageAndRow {
+  height: 1000px;
+}
+
+@media screen and (max-width: 720px) {
+  .imageAndRow {
+    height: 1600px;
+  }
+}

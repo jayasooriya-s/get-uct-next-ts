@@ -35,7 +35,10 @@ export default function NavBar() {
         <li className={styles.nav_li}>
           <Link href={"/Background"}>Background</Link>
         </li>
-        <li className={styles.nav_li}>Our Approach</li>
+        <li className={styles.nav_li}>
+          <Link href={"/OurApproach"}>Our Approach</Link>
+        </li>
+
         <li className={styles.nav_li}>Capabilities</li>
         <li className={styles.nav_li}>Portfolio</li>
         <li className={styles.nav_li}>Market Ecosystem</li>
