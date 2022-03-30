@@ -38,8 +38,10 @@ export default function NavBar() {
         <li className={styles.nav_li}>
           <Link href={"/OurApproach"}>Our Approach</Link>
         </li>
+        <li className={styles.nav_li}>
+          <Link href={"/capabilities"}>Capabilities</Link>
+        </li>
 
-        <li className={styles.nav_li}>Capabilities</li>
         <li className={styles.nav_li}>Portfolio</li>
         <li className={styles.nav_li}>Market Ecosystem</li>
         <li className={styles.nav_li}>Value Dimension</li>

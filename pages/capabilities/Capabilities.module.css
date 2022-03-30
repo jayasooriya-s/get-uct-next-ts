@@ -1,0 +1,42 @@
+.imageAndRow {
+  height: 600px;
+}
+.ecosystemsTitle {
+  font-size: 35px;
+  font-family: "Bellefair";
+  src: local("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
+  color: #353535;
+  padding: 16px;
+}
+.ecosystemsColumn {
+  padding: 50px;
+  width: 100%;
+  height: 600px;
+  flex-direction: column;
+  flex-direction: column;
+  height: 600px;
+  background-color: white;
+  justify-content: center;
+}
+.ecosystemsRow {
+  width: 100%;
+  height: 400px;
+  flex-direction: row;
+  display: inline-flex;
+
+  background-color: white;
+}
+@media screen and (max-width: 720px) {
+  .imageAndRow {
+    height: 1100px;
+  }
+  .ecosystemsColumn {
+    height: 1300px;
+  }
+  .ecosystemsRow {
+    flex: column;
+    flex-direction: column;
+    height: 95%;
+    width: 100%;
+  }
+}
