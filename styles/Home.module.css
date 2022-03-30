@@ -44,6 +44,10 @@
   width: 100%;
 }
 
+.imageAndRow {
+  height: 600px;
+}
+
 @media screen and (max-width: 720px) {
   .descriptionAndImage {
     flex: column;
@@ -58,5 +62,8 @@
     flex-direction: column;
     height: 95%;
     width: 100%;
+  }
+  .imageAndRow {
+    height: 800px;
   }
 }

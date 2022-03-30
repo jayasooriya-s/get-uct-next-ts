@@ -9,7 +9,7 @@
 .descriptionAndImage {
   flex-direction: row;
   display: inline-flex;
-  height: 600px;
+  height: 100%;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -19,9 +19,6 @@
   .descriptionAndImage {
     flex: column;
     flex-direction: column;
-    height: 800px;
-  }
-  .ecosystemsColumn {
-    height: 1300px;
+    height: 100%;
   }
 }
