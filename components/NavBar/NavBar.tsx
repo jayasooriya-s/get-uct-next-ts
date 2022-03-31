@@ -41,20 +41,16 @@ export default function NavBar() {
         <li className={styles.nav_li}>
           <Link href={"/capabilities"}>Capabilities</Link>
         </li>
-
         <li className={styles.nav_li}>Portfolio</li>
         <li className={styles.nav_li}>
           <Link href={"/market-ecosystem"}>Market Ecosystem</Link>
         </li>
-
         <li className={styles.nav_li}>
           <Link href={"/value-dimension"}>Value Dimension</Link>
         </li>
-
-        <li className={styles.nav_li}>Contact</li>
-        {/* <li className={styles.nav_li}>
-          <TextWithBar></TextWithBar>
-        </li> */}
+        <li className={styles.nav_li}>
+          <Link href={"/about-us/contact"}>Contact</Link>
+        </li>
       </ul>
     </div>
   );
