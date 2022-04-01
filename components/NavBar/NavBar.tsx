@@ -4,7 +4,7 @@ import styles from "./NavBar.module.css";
 import logo from "/public/logo.png";
 import MenuIcon from "../MenuIcon/MenuIcon";
 import { AiOutlineClose } from "react-icons/ai";
-import Link from "next/link";
+import LinkWithEvent from "./LinkWithEvent";
 export default function NavBar() {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
   function renderIcon(): any {
@@ -23,33 +23,62 @@ export default function NavBar() {
       );
     }
   }
+  function onPageChange() {
+    setIsMobileMenuOpened(!isMobileMenuOpened);
+  }
 
   return (
     <div className={styles.navBar}>
       <div className={styles.icon}>{renderIcon()}</div>
       <img src={logo.src} alt="" className={styles.logo} />
       <ul className={isMobileMenuOpened ? styles.ul_visible : styles.ul_hide}>
-        <li className={styles.nav_li}>
-          <Link href={"/"}>Home</Link>
+        <li className={styles.nav_li} onClick={onPageChange}>
+          <LinkWithEvent href={"/"} title={"Home"} onClick={onPageChange} />
+        </li>
+        <li className={styles.nav_li} onClick={onPageChange}>
+          <LinkWithEvent
+            href={"/Background"}
+            title={"Background"}
+            onClick={onPageChange}
+          />
+        </li>
+        <li className={styles.nav_li} onClick={onPageChange}>
+          <LinkWithEvent
+            href={"/OurApproach"}
+            title={"Our Approach"}
+            onClick={onPageChange}
+          />
+        </li>
+        <li className={styles.nav_li} onClick={onPageChange}>
+          <LinkWithEvent
+            href={"/capabilities"}
+            title={"Capabilities"}
+            onClick={onPageChange}
+          />
+        </li>
+        <li className={styles.nav_li} onClick={onPageChange}>
+          Portfolio
         </li>
         <li className={styles.nav_li}>
-          <Link href={"/Background"}>Background</Link>
+          <LinkWithEvent
+            href={"/market-ecosystem"}
+            title={"Market Ecosystem"}
+            onClick={onPageChange}
+          />
+        </li>
+        <li className={styles.nav_li} onClick={onPageChange}>
+          <LinkWithEvent
+            href={"/value-dimension"}
+            title={"Value Dimension"}
+            onClick={onPageChange}
+          />
         </li>
         <li className={styles.nav_li}>
-          <Link href={"/OurApproach"}>Our Approach</Link>
-        </li>
-        <li className={styles.nav_li}>
-          <Link href={"/capabilities"}>Capabilities</Link>
-        </li>
-        <li className={styles.nav_li}>Portfolio</li>
-        <li className={styles.nav_li}>
-          <Link href={"/market-ecosystem"}>Market Ecosystem</Link>
-        </li>
-        <li className={styles.nav_li}>
-          <Link href={"/value-dimension"}>Value Dimension</Link>
-        </li>
-        <li className={styles.nav_li}>
-          <Link href={"/about-us/contact"}>Contact</Link>
+          <LinkWithEvent
+            href="/about-us/contact"
+            title={"Contact"}
+            onClick={onPageChange}
+          />
         </li>
       </ul>
     </div>

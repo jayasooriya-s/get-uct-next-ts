@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./MenuIcon.module.css";
 
 type MenuProps = {
-  handleClick: () => void;
+  handleClick?: () => void;
 };
 export default function MenuIcon(props: MenuProps) {
   return (

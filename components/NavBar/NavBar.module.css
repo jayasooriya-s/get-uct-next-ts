@@ -105,6 +105,7 @@
     display: inline;
     left: 20px;
     cursor: pointer;
+    margin-top: 20px;
   }
   .nav_li :hover:after {
     width: 50%;
