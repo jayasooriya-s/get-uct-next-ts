@@ -1,4 +1,6 @@
-html,
+html {
+  scroll-behavior: smooth;
+}
 body {
   position: absolute;
   min-width: 100%;
