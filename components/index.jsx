@@ -6,3 +6,4 @@ export { default as ImageIconRow } from "./ImageIconRow/ImageIconRow";
 export { default as ImageWithBottomIconTitle } from "./ImageWithBottomIconTitle/ImageWithBottomIconTitle";
 export { default as Layout } from "./Layout";
 export { default as ContactCard } from "./ContactCard/ContactCard";
+export { default as PortFolioCard } from "./PortfolioCard/PortfolioCard";
