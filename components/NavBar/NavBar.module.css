@@ -1,6 +1,6 @@
 .navBar {
   color: white;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.512);
   height: 90px;
   width: 100%;
   align-items: center;
@@ -10,12 +10,13 @@
   justify-content: center;
   padding-bottom: 16px;
   transition: top 0.3s;
+  z-index: 2;
 }
 
 .ul_visible {
   justify-content: center;
   list-style-type: none;
-  z-index: auto;
+  z-index: 2;
   align-items: flex-start;
 }
 .nav_li {
