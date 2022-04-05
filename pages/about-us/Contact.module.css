@@ -40,7 +40,7 @@
   .descriptionAndImage {
     flex: column;
     flex-direction: column;
-    height: 1000px;
+    height: 1200px;
   }
 
   .imageAndRow {
