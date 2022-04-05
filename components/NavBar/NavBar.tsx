@@ -56,8 +56,12 @@ export default function NavBar() {
             onClick={onPageChange}
           />
         </li>
-        <li className={styles.nav_li} onClick={onPageChange}>
-          Portfolio
+        <li className={styles.nav_li}>
+          <LinkWithEvent
+            href={"/portfolio"}
+            title={"Portfolio"}
+            onClick={onPageChange}
+          />
         </li>
         <li className={styles.nav_li}>
           <LinkWithEvent

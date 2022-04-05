@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
+.body {
+  background-color: white;
+  /* display: flex;
+  flex: Column;
+  flex-direction: column; */
+
+  top: 60px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  min-width: 100%;
+  width: 100%;
+  /* left: 0;
+  right: 0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin: 24px;
+  font-family: "Bellefair";
+  font-weight: bold;
+  color: #8c7156;
+}
+.image_container {
+  min-width: 100%;
+  width: 100%;
+  /* left: 0;
+  right: 0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pdf_image {
+  width: 75%;
+  height: 100%;
+  object-fit: cover;
+}
+.grid {
+  width: 75%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  /* grid-auto-rows: minmax(100px, auto); */
+}
+
+@media screen and (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr 1f 1fr;
+  }
+}
+@media screen and (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
