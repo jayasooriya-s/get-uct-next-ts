@@ -4,13 +4,14 @@ import { FaHome } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import IconAndText from "../IconAndText/IconAndText";
 import logo from "/public/logo.png";
+import bg from "../../public/footer.avif";
 
 export default function Footer() {
   return (
     <div
       className={styles.container}
       style={{
-        backgroundImage: `url("https://getuct.com/wp-content/uploads/2019/10/footer_background_05.jpg")`,
+        backgroundImage: `url(${bg.src})`,
         backgroundRepeat: "no-repeat",
       }}
     >

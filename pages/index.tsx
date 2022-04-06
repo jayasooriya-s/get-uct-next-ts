@@ -4,6 +4,13 @@ import { BsGraphUp } from "react-icons/bs";
 import { RiHandCoinLine, RiSuitcaseLine } from "react-icons/ri";
 import { GiMoneyStack } from "react-icons/gi";
 import { BiNotepad } from "react-icons/bi";
+import homeBanner from "../public/home/home-banner-top.avif";
+import mission from "../public/home/mission.avif";
+import consult from "../public/home/consult.avif";
+import strategy from "../public/home/strategy.avif";
+import technology from "../public/home/technology.avif";
+import call from "../public/home/call.avif";
+import contact from "../public/home/contact.avif";
 import {
   EnquiryForm,
   ImageIconRow,
@@ -15,7 +22,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <TopBanner
-        backgroundImage="https://getuct.com/wp-content/uploads/2021/05/Untitled-design-9.png"
+        backgroundImage={homeBanner.src}
         title="MARKETPLACE SPECIALISTS"
         titleBig="MOMENTUM IS INCREASING"
       />
@@ -51,7 +58,7 @@ const Home: NextPage = () => {
         <ImageIconRow
           title={"CONSULTING, DEVELOPMENT AND SUPPORT EXPERTISE"}
           icon={<RiHandCoinLine />}
-          imgUrl="https://getuct.com/wp-content/uploads/2021/06/4-1.png"
+          imgUrl={consult.src}
           description={
             <>
               <p>
@@ -82,7 +89,7 @@ const Home: NextPage = () => {
         <div
           className={styles.rowImage}
           style={{
-            backgroundImage: `url("https://getuct.com/wp-content/uploads/2021/06/REQUEST-A-FREE-CALL-BACK.jpg")`,
+            backgroundImage: `url(${contact.src})`,
           }}
         ></div>
         <div className={styles.enquiryForm}>
@@ -100,23 +107,17 @@ const Home: NextPage = () => {
           <ImageWithBottomIconTitle
             title={"Strategy & process consulting"}
             icon={<RiSuitcaseLine />}
-            imgUrl={
-              "https://getuct.com/wp-content/uploads/2019/10/inner_card_11.jpg"
-            }
+            imgUrl={strategy.src}
           />
           <ImageWithBottomIconTitle
             title={"Technology consulting & development"}
             icon={<GiMoneyStack />}
-            imgUrl={
-              "https://getuct.com/wp-content/uploads/2019/10/inner_card_10.jpg"
-            }
+            imgUrl={technology.src}
           />
           <ImageWithBottomIconTitle
             title={"Call center & market support enablement"}
             icon={<BiNotepad />}
-            imgUrl={
-              "https://getuct.com/wp-content/uploads/2019/10/inner_card_12.jpg"
-            }
+            imgUrl={call.src}
           />
         </div>
       </div>
