@@ -7,3 +7,4 @@ export { default as ImageWithBottomIconTitle } from "./ImageWithBottomIconTitle/
 export { default as Layout } from "./Layout";
 export { default as ContactCard } from "./ContactCard/ContactCard";
 export { default as PortFolioCard } from "./PortfolioCard/PortfolioCard";
+export { default as Loader } from "./Loader/Loader";
