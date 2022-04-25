@@ -64,7 +64,7 @@
   left: 0;
   margin-top: 8px;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .navBar {
     height: 53px;
     margin-bottom: 0px;
