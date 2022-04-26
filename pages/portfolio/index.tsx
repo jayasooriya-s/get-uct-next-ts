@@ -14,6 +14,25 @@ function Portfolio() {
   var [portfolioDataList, setPortfolioDataList] = useState<
     PortfolioModel[] | []
   >([]);
+  const [visible, setVisible] = useState(false);
+
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 300) {
+      setVisible(true);
+    } else if (scrolled <= 300) {
+      setVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+      /* you can also use 'auto' behaviour
+         in place of 'smooth' */
+    });
+  };
 
   function renderImage(image: PortfolioModel) {
     let el = document.getElementById(image.title ?? "");
@@ -26,6 +45,7 @@ function Portfolio() {
 
   useEffect(() => {
     fetchPortfolio();
+    window.addEventListener("scroll", toggleVisible);
   }, []);
 
   function backToTop() {
@@ -93,7 +113,10 @@ function Portfolio() {
             </div>
           ))}
         </div>
-        <div className={styles.back_to_top}>
+        <div
+          className={styles.back_to_top}
+          style={{ display: visible ? "flex" : "none" }}
+        >
           <AiOutlineArrowUp className={styles.arrow} onClick={backToTop} />
         </div>
       </div>{" "}
@@ -130,7 +153,10 @@ function Portfolio() {
           </div>
         ))}
       </div>
-      <div className={styles.back_to_top}>
+      <div
+        className={styles.back_to_top}
+        style={{ display: visible ? "flex" : "none" }}
+      >
         <AiOutlineArrowUp className={styles.arrow} onClick={backToTop} />
       </div>
     </div>
