@@ -1,49 +1,89 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TiFlowMerge } from "react-icons/ti";
 import { ImageIconRow, TopBanner } from "../../components";
+import { domain } from "../../config";
 import styles from "./ValueDimension.module.css";
 
 export default function ValueDimension() {
+  const [apiData, setApiData] = useState<IValueDimension>({
+    topBanner: { bigTitle: "" },
+  });
+  useEffect(() => {
+    fetchPortfolio();
+  }, []);
+
+  const fetchPortfolio = async () => {
+    try {
+      const response = await fetch(
+        `${domain}/api/value-dimension?populate[topBanner][populate]=*&populate[imageAndDescription][populate]=*`
+      );
+      if (response.status == 200) {
+        let _apiData = await response.json();
+
+        setApiData({
+          topBanner: {
+            bigTitle: _apiData.data.attributes.topBanner.bigTitle,
+            smallTitle: _apiData.data.attributes.topBanner.smallTitle,
+            image: `${domain}${_apiData.data.attributes.topBanner.image.data.attributes.url}`,
+          },
+          imageAndDescription: {
+            title: _apiData.data.attributes.imageAndDescription.title,
+            description:
+              _apiData.data.attributes.imageAndDescription.description,
+            isImageFirst: _apiData.data.attributes.imageAndDescription.title,
+            image: `${domain}${_apiData.data.attributes.imageAndDescription.image.data.attributes.url}`,
+          },
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <div>
-      <TopBanner backgroundImage="https://getuct.com/wp-content/uploads/2021/06/1.png" />
+      <TopBanner
+        backgroundImage={
+          apiData.topBanner?.image ??
+          "https://getuct.com/wp-content/uploads/2021/06/1.png"
+        }
+        title={apiData.topBanner?.smallTitle}
+        titleBig={apiData.topBanner?.bigTitle}
+      />
       <div className={styles.imageAndRow}>
         <ImageIconRow
-          imgUrl={"https://getuct.com/wp-content/uploads/2021/06/equity.jpg"}
+          imgUrl={
+            apiData.imageAndDescription?.image ??
+            "https://getuct.com/wp-content/uploads/2021/06/equity.jpg"
+          }
           icon={<TiFlowMerge />}
-          isImageFirst={false}
+          isImageFirst={apiData.imageAndDescription?.isImageFirst}
+          title={apiData.imageAndDescription?.title}
           description={
-            <>
-              <p>
-                Aspirations of the marketplace or market ecosystem owners have
-                the objective of realizing exponential value accumulation and
-                dilution as their exit or focus strategy. Hence it is important
-                to understand the perspective of the investors while organizing
-                the digital business model and value parameters.
-              </p>
-              <div className={styles.heading}>
-                We have experienced that all markets are not created equal and
-                all revenues are not created equal
-              </div>
-              <p>
-                Hence we consider a wider spectrum from a valuation angle as we
-                help conceive consult, build, operate and deliver such as
-              </p>
-              <ul>
-                <li>Experience</li>
-                <li>Buyer-Supplier Fragmentation</li>
-                <li>Supplier Friction</li>
-                <li>Economic Moats</li>
-                <li>Network Effects</li>
-                <li>Churn Rate</li>
-                <li>Gross Margins</li>
-                <li>Frequency</li>
-                <li>Scale</li>
-              </ul>
-            </>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: apiData.imageAndDescription?.description ?? "",
+              }}
+            ></div>
           }
         />
       </div>
     </div>
   );
+}
+
+interface IValueDimension {
+  topBanner?: ITopBanner;
+  imageAndDescription?: IImageAndDescription;
+}
+
+interface ITopBanner {
+  smallTitle?: string;
+  bigTitle?: string;
+  image?: string;
+}
+interface IImageAndDescription {
+  title: string;
+  description: string;
+  image: string;
+  isImageFirst: Boolean;
 }
