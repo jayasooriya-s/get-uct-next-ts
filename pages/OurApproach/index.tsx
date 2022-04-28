@@ -1,70 +1,88 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { RiSoundcloudLine } from "react-icons/ri";
 import { ImageIconRow, TopBanner } from "../../components/index";
+import { domain } from "../../config";
 import styles from "../OurApproach/OurApproach.module.css";
 
 export default function OurApproach() {
+  const [apiData, setApiData] = useState<IOurApproach>({
+    topBanner: { bigTitle: "" },
+  });
+  useEffect(() => {
+    fetchPortfolio();
+  }, []);
+
+  const fetchPortfolio = async () => {
+    try {
+      const response = await fetch(
+        `${domain}/api/our-approach?populate[topBanner][populate]=*&populate[imageAndDescription][populate]=*`
+      );
+      let _apiData = await response.json();
+      setApiData({
+        topBanner: {
+          bigTitle: _apiData.data.attributes.topBanner.bigTitle,
+          smallTitle: _apiData.data.attributes.topBanner.smallTitle,
+          image: `${domain}${_apiData.data.attributes.topBanner.image.data.attributes.url}`,
+        },
+        imageAndDescription: {
+          title: _apiData.data.attributes.imageAndDescription.title,
+          description: _apiData.data.attributes.imageAndDescription.description,
+          isImageFirst: _apiData.data.attributes.imageAndDescription.title,
+          image: `${domain}${_apiData.data.attributes.imageAndDescription.image.data.attributes.url}`,
+        },
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <div>
-      <TopBanner backgroundImage="https://getuct.com/wp-content/uploads/2021/06/2.png" />
+      <TopBanner
+        backgroundImage={
+          apiData.topBanner?.image ??
+          "https://getuct.com/wp-content/uploads/2021/06/2.png"
+        }
+        titleBig={apiData.topBanner?.bigTitle}
+        title={apiData.topBanner?.smallTitle}
+      />
       <div className={styles.imageAndRow}>
         <ImageIconRow
           imgUrl={
+            apiData.imageAndDescription?.image ??
             "https://getuct.com/wp-content/uploads/2021/06/We-build-to-drive-Equity-Value.jpg"
           }
           icon={<RiSoundcloudLine />}
-          isImageFirst={false}
-          title="We build to drive equity value"
+          isImageFirst={apiData.imageAndDescription?.isImageFirst}
+          title={
+            apiData.imageAndDescription?.title ??
+            "We build to drive equity value"
+          }
           description={
-            <>
-              <p>
-                We start by understanding the areas in which our clients or
-                associations or industry vertical companies have capabilities to
-                serve the customers’ unmet needs.
-              </p>
-              <p>
-                We explore the opportunity to partner with others in the
-                discovered ecosystem to collaboratively serve them.
-              </p>
-              <p>
-                We ensure technology & process models in place which does not
-                dilute the identity of the members engaged at the same time
-                leverage each other’s strengths for exponential value
-                realization.
-              </p>
-              <p>
-                Thus we enable the ecosystem’s marketers to function effectively
-                infusion.
-              </p>
-              <h4>Our domain wealth & tech wealth</h4>
-              <p>
-                We are good at weaving the data with the model to impress the
-                participating members of the ecosystem to be inclined to embrace
-                collaborative economy prosperity.
-              </p>
-              <h4>
-                We secure ourselves not just with cyber intelligence but with
-                TRUST
-              </h4>
-              <p>
-                Our technology is built with a structure that systematically
-                builds trust by protecting customer data from both external
-                cyber threats and unethical internal data misuse.
-              </p>
-              <p>
-                Great marketplaces do not simply aggregate a market, they
-                enhance it. They leverage the connective tissue to offer the
-                consumer a user experience that simply was not possible before
-                the arrival of this new intermediary.
-              </p>
-              <h4>
-                It has to be innovative, our unique proposition is innovation to
-                your concept to make it survive, thrive & flourish
-              </h4>
-            </>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: apiData.imageAndDescription?.description ?? "",
+              }}
+            ></div>
           }
         />
       </div>
     </div>
   );
+}
+
+interface IOurApproach {
+  topBanner?: ITopBanner;
+  imageAndDescription?: IImageAndDescription;
+}
+
+interface ITopBanner {
+  smallTitle?: string;
+  bigTitle?: string;
+  image?: string;
+}
+interface IImageAndDescription {
+  title: string;
+  description: string;
+  image: string;
+  isImageFirst: Boolean;
 }
