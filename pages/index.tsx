@@ -1,14 +1,9 @@
 import type { NextPage } from "next";
 import styles from "../styles/Home.module.css";
 import { BsGraphUp } from "react-icons/bs";
-import { RiHandCoinLine, RiSuitcaseLine } from "react-icons/ri";
-import { GiMoneyStack } from "react-icons/gi";
-import { BiNotepad } from "react-icons/bi";
+import { RiHandCoinLine } from "react-icons/ri";
 import homeBanner from "../public/home/home-banner-top.avif";
 import consult from "../public/home/consult.avif";
-import strategy from "../public/home/strategy.avif";
-import technology from "../public/home/technology.avif";
-import call from "../public/home/call.avif";
 import contact from "../public/home/contact.avif";
 import {
   EnquiryForm,
@@ -20,7 +15,6 @@ import { useEffect, useState } from "react";
 import { domain } from "../config";
 
 const Home: NextPage = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const [apiData, setApiData] = useState<IHomeScreen>({
     topBanner: { bigTitle: "" },
   });
@@ -29,7 +23,6 @@ const Home: NextPage = () => {
   }, []);
 
   const fetchPortfolio = async () => {
-    setIsLoading(true);
     try {
       const response = await fetch(
         `${domain}/api/home-screens?populate[topBanner][populate]=*&populate[firstImageAndDescription][populate]=*&populate[secondImageAndDescription][populate]=*`
@@ -58,11 +51,8 @@ const Home: NextPage = () => {
           image: `${domain}${dataList.data[0].attributes.secondImageAndDescription.image.data.attributes.formats.large.url}`,
         },
       });
-
-      setIsLoading(false);
     } catch (e) {
       console.log(e);
-      setIsLoading(true);
     }
   };
   return (
@@ -109,7 +99,7 @@ const Home: NextPage = () => {
         />
       </div>
 
-      {marketEcosystem()}
+      {MarketEcosystem()}
       <div className={styles.descriptionAndImage}>
         <div
           className={styles.rowImage}
@@ -123,31 +113,6 @@ const Home: NextPage = () => {
       </div>
     </div>
   );
-
-  function marketEcosystem() {
-    return (
-      <div className={styles.ecosystemsColumn}>
-        <div className={styles.ecosystemsTitle}>Marketplace ecosystem</div>
-        <div className={styles.ecosystemsRow}>
-          <ImageWithBottomIconTitle
-            title={"Strategy & process consulting"}
-            icon={<RiSuitcaseLine />}
-            imgUrl={strategy.src}
-          />
-          <ImageWithBottomIconTitle
-            title={"Technology consulting & development"}
-            icon={<GiMoneyStack />}
-            imgUrl={technology.src}
-          />
-          <ImageWithBottomIconTitle
-            title={"Call center & market support enablement"}
-            icon={<BiNotepad />}
-            imgUrl={call.src}
-          />
-        </div>
-      </div>
-    );
-  }
 };
 
 export default Home;
@@ -168,4 +133,60 @@ interface IImageAndDescription {
   description: string;
   image: string;
   isImageFirst: Boolean;
+}
+
+function MarketEcosystem() {
+  const [apiData, setApiData] = useState<IMarketEcosystem[]>();
+  const [title, setTitle] = useState("Marketplace ecosystem");
+  useEffect(() => {
+    fetchMarketEcosystem();
+  }, []);
+  const fetchMarketEcosystem = async () => {
+    try {
+      const response = await fetch(
+        `${domain}/api/market-ecosystem-home?populate[options][populate]=*`
+      );
+      if (response.status == 200) {
+        const dataList = await response.json();
+        setTitle(dataList.data.attributes.title);
+        let _list: IMarketEcosystem[] = [];
+        dataList.data.attributes.options.map &&
+          dataList.data.attributes.options.map((i: any) => {
+            _list.push({
+              background: `${domain}${i.backgroundImage.data.attributes.url}`,
+              icon: `${domain}${
+                i.icon.data != null ? i.icon.data.attributes.url : ""
+              }`,
+              title: i.title,
+            });
+          });
+        setApiData(_list);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  return (
+    <div className={styles.ecosystemsColumn}>
+      <div className={styles.ecosystemsTitle}>{title}</div>
+      <div className={styles.ecosystemsRow}>
+        {apiData?.map((i, index) => {
+          return (
+            <ImageWithBottomIconTitle
+              // eslint-disable-next-line @next/next/no-img-element
+              icon={<img src={i.icon} alt=""></img>}
+              imgUrl={i.background}
+              title={i.title}
+              key={`${index}`}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+interface IMarketEcosystem {
+  title: string;
+  icon: string;
+  background: string;
 }
