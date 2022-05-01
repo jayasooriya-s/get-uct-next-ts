@@ -27,7 +27,8 @@ export default function OurApproach() {
         imageAndDescription: {
           title: _apiData.data.attributes.imageAndDescription.title,
           description: _apiData.data.attributes.imageAndDescription.description,
-          isImageFirst: _apiData.data.attributes.imageAndDescription.title,
+          isImageFirst:
+            _apiData.data.attributes.imageAndDescription.isImageFirst,
           image: `${domain}${_apiData.data.attributes.imageAndDescription.image.data.attributes.url}`,
         },
       });

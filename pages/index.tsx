@@ -153,9 +153,9 @@ function MarketEcosystem() {
         dataList.data.attributes.options.map &&
           dataList.data.attributes.options.map((i: any) => {
             _list.push({
-              background: `${domain}${i.backgroundImage.data.attributes.url}`,
-              icon: `${domain}${
-                i.icon.data != null ? i.icon.data.attributes.url : ""
+              background: `${domain + i.backgroundImage.data.attributes.url}`,
+              icon: `${
+                i.icon.data != null ? domain + i.icon.data.attributes.url : ""
               }`,
               title: i.title,
             });
