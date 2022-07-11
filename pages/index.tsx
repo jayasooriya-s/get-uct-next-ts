@@ -1,4 +1,8 @@
-import type { NextPage } from "next";
+import type {
+  NextPage,
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+} from "next";
 import styles from "../styles/Home.module.css";
 import { BsGraphUp } from "react-icons/bs";
 import { RiHandCoinLine } from "react-icons/ri";
@@ -14,12 +18,48 @@ import {
 import { useEffect, useState } from "react";
 import { domain } from "../config";
 
-const Home: NextPage = () => {
+export const getServerSideProps = async () => {
+  const response = await fetch(
+    `${domain}/api/home-screens?populate[topBanner][populate]=*&populate[firstImageAndDescription][populate]=*&populate[secondImageAndDescription][populate]=*`
+  );
+  const dataList = await response.json();
+
+  return {
+    props: {
+      homeData: {
+        topBanner: {
+          smallTitle: dataList.data[0].attributes.topBanner.smallTitle ?? "",
+          bigTitle: dataList.data[0].attributes.topBanner.bigTitle,
+          image: `${domain}${dataList.data[0].attributes.topBanner.image.data.attributes.formats.large.url}`,
+        },
+        imageAndDescriptionFirst: {
+          title: dataList.data[0].attributes.firstImageAndDescription.title,
+          description:
+            dataList.data[0].attributes.firstImageAndDescription.description,
+          isImageFirst:
+            dataList.data[0].attributes.firstImageAndDescription.isImageFirst,
+          image: `${domain}${dataList.data[0].attributes.firstImageAndDescription.image.data.attributes.formats.large.url}`,
+        },
+        imageAndDescriptionSecond: {
+          title: dataList.data[0].attributes.secondImageAndDescription.title,
+          description:
+            dataList.data[0].attributes.secondImageAndDescription.description,
+          isImageFirst:
+            dataList.data[0].attributes.secondImageAndDescription.isImageFirst,
+          image: `${domain}${dataList.data[0].attributes.secondImageAndDescription.image.data.attributes.formats.large.url}`,
+        },
+      },
+    },
+  };
+};
+const Home = ({
+  homeData,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [apiData, setApiData] = useState<IHomeScreen>({
     topBanner: { bigTitle: "" },
   });
   useEffect(() => {
-    fetchPortfolio();
+    //fetchPortfolio();
   }, []);
 
   const fetchPortfolio = async () => {
@@ -58,23 +98,23 @@ const Home: NextPage = () => {
   return (
     <div>
       <TopBanner
-        backgroundImage={apiData.topBanner!.image ?? homeBanner.src}
-        title={apiData.topBanner!.smallTitle ?? "MARKETPLACE SPECIALISTS "}
-        titleBig={apiData.topBanner!.bigTitle ?? "MOMENTUM IS INCREASING"}
+        backgroundImage={homeData.topBanner!.image ?? homeBanner.src}
+        title={homeData.topBanner!.smallTitle ?? "MARKETPLACE SPECIALISTS "}
+        titleBig={homeData.topBanner!.bigTitle ?? "MOMENTUM IS INCREASING"}
       />
       <div className={styles.imageAndRow}>
         <ImageIconRow
-          title={apiData.imageAndDescriptionFirst?.title ?? "OUR MISSION"}
+          title={homeData.imageAndDescriptionFirst?.title ?? "OUR MISSION"}
           icon={<BsGraphUp />}
-          isImageFirst={apiData.imageAndDescriptionFirst?.isImageFirst}
+          isImageFirst={homeData.imageAndDescriptionFirst?.isImageFirst}
           imgUrl={
-            apiData.imageAndDescriptionFirst?.image ??
+            homeData.imageAndDescriptionFirst?.image ??
             "https://getuct.com/wp-content/uploads/2021/06/5-1.png"
           }
           description={
             <div
               dangerouslySetInnerHTML={{
-                __html: apiData.imageAndDescriptionFirst?.description ?? "",
+                __html: homeData.imageAndDescriptionFirst?.description ?? "",
               }}
             ></div>
           }
@@ -83,19 +123,19 @@ const Home: NextPage = () => {
       <div className={styles.imageAndRow}>
         <ImageIconRow
           title={
-            apiData.imageAndDescriptionSecond?.title ??
+            homeData.imageAndDescriptionSecond?.title ??
             "CONSULTING, DEVELOPMENT AND SUPPORT EXPERTISE"
           }
           icon={<RiHandCoinLine />}
-          imgUrl={apiData.imageAndDescriptionSecond?.image ?? consult.src}
+          imgUrl={homeData.imageAndDescriptionSecond?.image ?? consult.src}
           description={
             <div
               dangerouslySetInnerHTML={{
-                __html: apiData.imageAndDescriptionSecond?.description ?? "",
+                __html: homeData.imageAndDescriptionSecond?.description ?? "",
               }}
             ></div>
           }
-          isImageFirst={apiData.imageAndDescriptionSecond?.isImageFirst}
+          isImageFirst={homeData.imageAndDescriptionSecond?.isImageFirst}
         />
       </div>
 
