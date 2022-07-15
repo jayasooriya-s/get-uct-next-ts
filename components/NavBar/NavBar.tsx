@@ -33,7 +33,7 @@ export default function NavBar() {
       <img src={logo.src} alt="" className={styles.logo} />
       <ul className={isMobileMenuOpened ? styles.ul_visible : styles.ul_hide}>
         <li className={styles.nav_li} onClick={onPageChange}>
-          <LinkWithEvent href={"/"} title={"Home"} onClick={onPageChange} />
+          <LinkWithEvent href={"/"} title={"Main"} onClick={onPageChange} />
         </li>
         <li className={styles.nav_li} onClick={onPageChange}>
           <LinkWithEvent
